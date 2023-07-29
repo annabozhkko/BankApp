@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Query input</title>
+</head>
+<body>
+<h1>Query input</h1>
+<form th:action="@{/query/result}">
+    <textarea name="query" id="query" rows="5" cols="50"></textarea>
+    <br>
+    <button type="submit">Execute</button>
+</form>
+
+</body>
+
+
+</html>

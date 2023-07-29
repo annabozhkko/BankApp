@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<p th:text="${client.getFullname() + ', ' + client.getPassportDetails()}">VALUE</p>
+
+<a th:href="@{/clients/{id}/edit(id=${client.getId()})}">Edit</a><br>
+<a th:href="@{/clients/{id}/block(id=${client.getId()})}">Block</a><br>
+<a th:href="@{/scoring/{id}(id=${client.getId()})}">Add credit scoring</a><br>
+<a th:href="@{/credits/{id}/showScoring(id=${client.getId()})}">Show credit scoring list</a><br>
+<a th:href="@{/credits/{id}/creditHistory(id=${client.getId()})}">Credit history</a><br>
+<a th:href="@{/payments/scheduleClient/{id}(id=${client.getId()})}">Payments schedule</a><br>
+<a th:href="@{/payments/delay/{id}(id=${client.getId()})}">Delay information</a><br>
+<a th:href="@{/paymentHistory/{id}(id=${client.getId()})}">Payment history</a><br>
+
+<form th:method="DELETE" th:action="@{/clients/{id}(id=${client.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

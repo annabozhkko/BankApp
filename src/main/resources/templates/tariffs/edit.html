@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update client</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/tariffs/{id}(id=${tariff.getId()})}" th:object="${tariff}">
+    <label for="sum">Enter sum: </label>
+    <input type="text" th:field="*{sum}" id="sum"/>
+    <div style="color:red" th:if="${#fields.hasErrors('sum')}" th:errors="*{sum}">Sum Error</div>
+    <br/>
+    <label for="rate">Enter rate: </label>
+    <input type="text" th:field="*{rate}" id="rate"/>
+    <div style="color:red" th:if="${#fields.hasErrors('rate')}" th:errors="*{rate}">Rate Error</div>
+    <br/>
+    <label for="period">Enter time: </label>
+    <input type="text" th:field="*{period}" id="period"/>
+    <div style="color:red" th:if="${#fields.hasErrors('period')}" th:errors="*{period}">Time Error</div>
+    <br/>
+    <input type="submit" value="Update"/>
+</form>
+
+</body>
+</html>

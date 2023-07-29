@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scoring credits list</title>
+</head>
+<body>
+
+<div th:each="credit :${credits}">
+    <p th:text="${credit.getTariff().getSum() + ', ' + credit.getTariff().getRate() + '%, ' + credit.getTariff().getPeriod() + ' months'}"></p>
+    <form th:method="POST" th:action="@{/credits/{id}/showScoring(id=${credit.getId()})}">
+        <label for="date">Select date:</label>
+        <input type="date" id="date" name="date" required>
+        <button type="submit" name="id" th:value="${credit.getId()}" th:text = "Approve"</button>
+    </form>
+</div>
+
+</body>
+</html>

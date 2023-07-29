@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients filter</title>
+</head>
+<body>
+
+<form th:method="GET" th:action="@{/clients}">
+    <div class="form-group">
+        <label for="name">Fullname:</label>
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="passport">Passport details:</label>
+        <input type="text" class="form-control" id="passport" name="passport">
+    </div>
+
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <select class="form-control" id="status" name="status">
+            <option value="">Not selected</option>
+            <option value="No credits / tariff available">No credits / tariff available</option>
+            <option value="Credit available">Credit available</option>
+            <option value="No tariff">No tariff</option>
+            <option value="Blocked">Blocked</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<form action="/clients/new" method="get">
+    <button type="submit">Create new client</button>
+</form>
+
+<form action="/" method="get">
+    <button type="submit">Main Menu</button>
+</form>
+
+</body>
+</html>

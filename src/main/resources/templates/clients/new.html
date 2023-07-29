@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/clients}" th:object="${client}">
+    <label for="fullname">Enter name: </label>
+    <input type="text" th:field="*{fullname}" id="fullname" required/>
+    <div style="color:red" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}">Name Error</div>
+    <br/>
+    <label for="passportDetails">Enter passport details: </label>
+    <input type="text" th:field="*{passportDetails}" id="passportDetails" required/>
+    <div style="color:red" th:if="${#fields.hasErrors('passportDetails')}" th:errors="*{passportDetails}">Passport details Error</div>
+    <br/>
+    <input type="submit" value="Create"/>
+</form>
+
+</body>
+</html>

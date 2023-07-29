@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query result</title>
+</head>
+<body>
+
+<table>
+<thead>
+
+<th th:each="columnName : ${columnNames}">
+    <span th:text="${columnName}"></span>
+</th>
+
+<tr th:each="row : ${results}">
+    <td th:each="columnName : ${columnNames}">
+        <span th:text="${row.get(columnName)}"></span>
+    </td>
+</tr>
+
+</thead>
+</table>
+
+</body>
+
+</html>

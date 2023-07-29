@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New payment</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/paymentHistory}" th:object="${payment}">
+    <label for="date">Enter date:</label>
+    <input type="date" id="date" name="date" required th:value="${#dates.format(payment.date, 'yyyy-MM-dd')}">
+    <br/>
+    <label for="sumLoan">Enter sum loan: </label>
+    <input type="text"  id="sumLoan" name="sumLoan" required th:field="*{sumLoan}">
+    <br/>
+    <label for="sumPercent">Enter sum percent: </label>
+    <input type="text" id="sumPercent" name="sumPercent" required th:field="*{sumPercent}">
+    <br/>
+
+    <select name="paymentType" th:field="*{paymentType}">
+        <div th:each="payment_type :${payment_types}">
+            <option th:value="${payment_type.getId()}" th:text="${payment_type.getName()}"></option>
+        </div>
+    </select>
+
+    <input type="submit" value="Create"/>
+</form>
+
+</body>
+</html>

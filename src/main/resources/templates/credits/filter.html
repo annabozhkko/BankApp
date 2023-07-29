@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Credits filter</title>
+</head>
+<body>
+
+<form th:method="GET" th:action="@{/credits}">
+    <div class="form-group">
+        <label for="name">Fullname client:</label>
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="passport">Passport details of client:</label>
+        <input type="text" class="form-control" id="passport" name="passport">
+    </div>
+    <div class="form-group">
+        <label for="sum">Sum credit</label>
+        <input type="text" class="form-control" id="sum" name="sum">
+    </div>
+    <div class="form-group">
+        <label for="percent">Percent:</label>
+        <input type="text" class="form-control" id="percent" name="percent">
+    </div>
+    <div class="form-group">
+        <label for="period">Period(months):</label>
+        <input type="text" class="form-control" id="period" name="period">
+    </div>
+    <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" id="date" name="date">
+    </div>
+    <div class="form-group">
+        <label for="status">Credit status:</label>
+        <select class="form-control" id="status" name="status">
+            <option value="">Not selected</option>
+            <option value="Active">Active</option>
+            <option value="Closed">Closed</option>
+            <option value="Overdue">Overdue</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="profit_from">Profit from:</label>
+        <input type="text" class="form-control" id="profit_from" name="profit_from">
+        <label for="profit_to"> to:</label>
+        <input type="text" class="form-control" id="profit_to" name="profit_toe">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<form action="/" method="get">
+    <button type="submit">Main Menu</button>
+</form>
+
+</body>
+</html>

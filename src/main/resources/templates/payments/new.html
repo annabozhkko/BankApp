@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New payment</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/payments/new/{id}(id=${credit.getId()})}">
+    <label for="date">Enter date:</label>
+    <input type="date" id="date" name="date" required>
+    <br/>
+
+    <label for="sum">Enter sum: </label>
+    <input type="text"  id="sum" name="sum" required>
+    <br/>
+
+    <select name="payment_type">
+        <div th:each="payment_type :${payment_types}">
+            <option th:value="${payment_type.getId()}" th:text="${payment_type.getName()}"</option>
+        </div>
+    </select>
+
+    <input type="submit" value="Make payment"/>
+</form>
+
+</body>
+</html>

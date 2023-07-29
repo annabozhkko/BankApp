@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+</head>
+<body>
+
+<p th:text="${payment.getDate() + ', ' + payment.getSumLoan() + ' loan, ' + payment.getSumPercent() + ' percent'}">VALUE</p>
+<a th:href="@{/paymentHistory/{id}/edit(id=${payment.getId()})}">Edit</a><br>
+
+<form th:method="DELETE" th:action="@{/paymentHistory/{id}(id=${payment.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+
+</body>
+</html>

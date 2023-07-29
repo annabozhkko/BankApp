@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update payment</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/paymentHistory/{id}(id=${payment.getId()})}">
+    <label for="date">Enter date:</label>
+    <input type="date" id="date" name="date" required>
+    <br/>
+    <label for="sum_loan">Enter sum loan: </label>
+    <input type="text"  id="sum_loan" name="sum_loan" required>
+    <br/>
+    <label for="sum_percent">Enter sum percent: </label>
+    <input type="text"  id="sum_percent" name="sum_percent" required>
+    <br/>
+
+    <select name="payment_type">
+        <div th:each="payment_type :${payment_types}">
+            <option th:value="${payment_type.getId()}" th:text="${payment_type.getName()}"</option>
+        </div>
+    </select>
+
+    <input type="submit" value="Update"/>
+</form>
+
+
+</body>
+</html>

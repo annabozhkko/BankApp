@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add credit scoring</title>
+</head>
+<body>
+
+<p th:text="${client.getFullname() + ', ' + client.getPassportDetails()}">VALUE</p>
+
+<div th:each="tariff :${page}">
+    <form th:method="POST" th:action="@{/scoring/{id}(id=${tariff.getId()})}">
+        <button type="submit" name="id" th:value="${tariff.getId()}"
+                th:text="${tariff.getSum() + ', ' + tariff.getRate() + '%, ' + tariff.getPeriod() + ' months'}">user
+        </button>
+    </form>
+</div>
+
+<div>
+    <ul>
+        <li th:if="${page.hasPrevious()}">
+            <a th:href="@{(${httpServletRequest.requestURI})(page=${page.previousPageable().pageNumber})}" th:text="'Prev'">
+            </a>
+        </li>
+        <li th:if="${page.hasNext()}">
+            <a th:href="@{(${httpServletRequest.requestURI})(page=${page.nextPageable().pageNumber})}" th:text="'Next'" th:attr="href=@{(${httpServletRequest.requestURI})(page=${page.nextPageable().pageNumber})}">
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+</body>
+</html>

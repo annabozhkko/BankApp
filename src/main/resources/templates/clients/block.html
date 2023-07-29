@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Block client</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/clients/{id}/block(id=${client.id})}">
+    <label for="date1">Enter block start date: </label>
+    <input type="date" id="date1" name="date1" required>
+    <br/>
+    <label for="date2">Enter block end date: </label>
+    <input type="date" id="date2" name="date2" required>
+    <br/>
+    <input type="submit" value="Block"/>
+</form>
+
+</body>
+
+
+</html>

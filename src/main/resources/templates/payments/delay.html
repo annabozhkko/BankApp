@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delays</title>
+</head>
+<body>
+
+<p th:text="${credit.getDate() + ', ' + credit.getTariff().getSum() + ', '+ credit.getTariff().getRate() + '%, ' +
+    credit.getTariff().getPeriod() + ' months'}"></p>
+<p th:text="${'Sum delay loan: ' + delay_loan}"></p>
+<p th:text="${'Sum delay percent: ' + delay_percent}"></p>
+
+</body>
+</html>

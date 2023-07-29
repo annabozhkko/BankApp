@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit history</title>
+</head>
+<body>
+
+<div th:each="credit :${credits}">
+    <p>
+        <span th:text="${credit.getDate() + ', ' + credit.getTariff().getSum() + ', '+ credit.getTariff().getRate() +
+        '%, ' + credit.getTariff().getPeriod() + ' months'}"></span>
+        <span th:if="${credit.getIsActive()}" style="font-weight: bold; color: green;"> active</span>
+    </p>
+</div>
+
+</body>
+</html>

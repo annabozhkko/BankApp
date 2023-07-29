@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>Credits</title>
+</head>
+<body>
+
+<div th:each="credit :${page}">
+    <p th:text="${credit.getClient().getFullname() + ', ' + credit.getTariff().getSum() + ', '+ credit.getTariff().getRate() + '%, ' + credit.getTariff().getPeriod() + ' months'}"></p>
+    <a th:href="@{/payments/new/{id}(id=${credit.getId()})}">Make payment</a><br>
+    <form th:method="DELETE" th:action="@{/credits/{id}(id=${credit.getId()})}">
+        <input type="submit" value="Delete"/>
+    </form>
+</div>
+
+<form action="/" method="get">
+    <button type="submit">Main Menu</button>
+</form>
+
+<div>
+    <ul>
+        <li th:if="${page.hasPrevious()}">
+            <a th:href="@{(${httpServletRequest.requestURI})(page=${page.previousPageable().pageNumber})}" th:text="'Prev'">
+            </a>
+        </li>
+        <li th:if="${page.hasNext()}">
+            <a th:href="@{(${httpServletRequest.requestURI})(page=${page.nextPageable().pageNumber})}" th:text="'Next'" th:attr="href=@{(${httpServletRequest.requestURI})(page=${page.nextPageable().pageNumber})}">
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+</body>
+</html>

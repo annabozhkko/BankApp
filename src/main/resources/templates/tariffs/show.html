@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<p th:text="${tariff.getSum() + ', ' + tariff.getRate() + '%, ' + tariff.getPeriod() + ' months'}">VALUE</p>
+
+<a th:href="@{/tariffs/{id}/edit(id=${tariff.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/tariffs/{id}(id=${tariff.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

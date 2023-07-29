@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New person</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/tariffs}" th:object="${tariff}">
+  <label for="sum">Enter sum: </label>
+  <input type="text" th:field="*{sum}" id="sum" required/>
+  <div style="color:red" th:if="${#fields.hasErrors('sum')}" th:errors="*{sum}">Sum Error</div>
+  <br/>
+  <label for="rate">Enter rate: </label>
+  <input type="text" th:field="*{rate}" id="rate" required/>
+  <div style="color:red" th:if="${#fields.hasErrors('rate')}" th:errors="*{rate}">Rate Error</div>
+  <br/>
+  <label for="period">Enter period: </label>
+  <input type="text" th:field="*{period}" id="period" required/>
+  <div style="color:red" th:if="${#fields.hasErrors('period')}" th:errors="*{period}">Period Error</div>
+  <br/>
+  <input type="submit" value="Create"/>
+</form>
+
+
+</body>
+</html>
